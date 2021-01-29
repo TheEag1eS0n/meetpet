@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get(uri: '/', action: \App\Http\Livewire\Page\Pets::class)
+    ->name(name: 'app.pets');
+
+Route::get(uri: '/{pet?}', action: \App\Http\Livewire\Page\Pets\Concrete::class)
+    ->name(name: 'app.pets.concrete');
+
+Route::fallback(action: fn() => redirect()->route(route: 'app.pets'));
