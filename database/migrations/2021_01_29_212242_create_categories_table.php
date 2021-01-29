@@ -15,6 +15,8 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create(table: 'categories', callback: function (Blueprint $table) {
             $table->uuid(column: 'id')->primary();
+            $table->string(column: 'title');
+            $table->json(column: 'setup');
             $table->timestamps();
         });
     }

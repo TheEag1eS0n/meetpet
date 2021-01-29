@@ -15,6 +15,7 @@ class CreatePresetsTable extends Migration
     {
         Schema::create(table: 'presets', callback: function (Blueprint $table) {
             $table->uuid(column: 'id')->primary();
+            $table->string(column: 'title');
             $table->timestamps();
         });
     }
