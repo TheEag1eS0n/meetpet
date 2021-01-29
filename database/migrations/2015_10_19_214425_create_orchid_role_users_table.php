@@ -9,29 +9,30 @@ class CreateOrchidRoleUsersTable extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create(table: 'role_users', callback: function (Blueprint $table) {
-            $table->uuid(column: 'user_id')->primary();
-            $table->unsignedInteger(column: 'role_id')->primary();
-            $table->foreign(columns: 'user_id')
-                ->references(columns: 'id')
-                ->on(table: 'users')
-                ->onUpdate(action: 'cascade')
-                ->onDelete(action: 'cascade');
-            $table->foreign(columns: 'role_id')
-                ->references(columns: 'id')
-                ->on(table: 'roles')
-                ->onUpdate(action: 'cascade')
-                ->onDelete(action: 'cascade');
+        Schema::create('role_users', function (Blueprint $table) {
+            $table->uuid('user_id');
+            $table->unsignedInteger('role_id');
+            $table->primary(['user_id', 'role_id']);
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreign('role_id')
+                ->references('id')
+                ->on('roles')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists(table: 'role_users');
+        Schema::dropIfExists('role_users');
     }
 }

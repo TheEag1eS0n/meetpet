@@ -9,13 +9,13 @@ class CreateOrchidRolesTable extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create(table: 'roles', callback: function (Blueprint $table) {
-            $table->uuid(column: 'id')->primary();
-            $table->string(column: 'slug')->unique();
-            $table->string(column: 'name');
-            $table->jsonb(column: 'permissions')->nullable();
+        Schema::create('roles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('slug')->unique();
+            $table->string('name');
+            $table->jsonb('permissions')->nullable();
             $table->timestamps();
         });
     }
@@ -23,8 +23,8 @@ class CreateOrchidRolesTable extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists(table: 'roles');
+        Schema::dropIfExists('roles');
     }
 }
