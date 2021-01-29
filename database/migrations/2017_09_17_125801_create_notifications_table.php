@@ -11,15 +11,15 @@ class CreateNotificationsTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
-        if (! Schema::hasTable('notifications')) {
-            Schema::create('notifications', function (Blueprint $table) {
-                $table->uuid('id')->primary();
-                $table->string('type');
-                $table->morphs('notifiable');
-                $table->text('data');
-                $table->timestamp('read_at')->nullable();
+        if (! Schema::hasTable(table: 'notifications')) {
+            Schema::create(table: 'notifications', callback: function (Blueprint $table) {
+                $table->uuid(column: 'id')->primary();
+                $table->string(column: 'type');
+                $table->morphs(name: 'notifiable');
+                $table->text(column: 'data');
+                $table->timestamp(column: 'read_at')->nullable();
                 $table->timestamps();
             });
         }
@@ -30,8 +30,8 @@ class CreateNotificationsTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('notifications');
+        Schema::dropIfExists(table: 'notifications');
     }
 }
