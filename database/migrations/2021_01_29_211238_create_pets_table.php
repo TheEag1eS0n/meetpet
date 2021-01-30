@@ -15,6 +15,7 @@ class CreatePetsTable extends Migration
     {
         Schema::create(table: 'pets', callback:  function (Blueprint $table) {
             $table->uuid(column: 'id')->primary();
+            $table->uuid(column: 'owner_id');
             $table->string(column: 'name');
             $table->uuid(column: 'category_id');
             $table->json(column: 'fieldset');

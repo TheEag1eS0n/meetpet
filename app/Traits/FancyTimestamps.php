@@ -26,7 +26,7 @@ trait FancyTimestamps
     }
 
     #[Pure]
-    public function updated(): string
+    public function lastUpdate(): string
     {
         $updatedAtColumn = $this->getUpdatedAtColumn();
         return match ($this->$updatedAtColumn === null) {

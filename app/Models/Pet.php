@@ -30,8 +30,8 @@ class Pet extends Model
         return $this->belongsTo(related: User::class);
     }
 
-    public function category(): HasOne
+    public function category(): BelongsTo
     {
-        return $this->hasOne(related: Category::class);
+        return $this->belongsTo(related: Category::class);
     }
 }

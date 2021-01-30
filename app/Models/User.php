@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\UsesUuidTrait;
 use Orchid\Platform\Models\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    use UsesUuidTrait;
+
     /**
      * The attributes that are mass assignable.
      *
