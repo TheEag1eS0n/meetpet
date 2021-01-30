@@ -3,10 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.meet {
-    background: rgba(95, 202, 163, 1);
-}
-
-.meet-text {
-    color: rgba(95, 202, 163, 1);
+#nav {
+    transition: max-height 0.5s ease-in-out;
 }

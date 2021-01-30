@@ -1,11 +1,11 @@
 <div class="w-full p-5 overflow-hidden">
-    <div class="flex mb-5">
-        <div class="flex flex-col items-center w-1/4">
+    <div class="flex flex-col sm:flex-row mb-5">
+        <div class="flex flex-col items-center sm:w-1/4">
             <img src="{{ \Illuminate\Support\Facades\Storage::url("assets/test.png") }}" alt="" class="w-full">
-            <a href="" class="rounded p-2 px-3 bg-mint hover:opacity-50 text-white w-2/3 text-center mt-3">Написать хозяину</a>
+            <a href="/chat" class="rounded p-2 px-3 bg-mint hover:opacity-50 text-white w-2/3 text-center mt-3">Написать хозяину</a>
         </div>
         <div>
-            <span class="text-2xl font-semibold py-5 flex">Василина</span>
+            <span class="text-2xl font-semibold py-5 flex">{{ $pet->name }}</span>
             <ul>
                 <li class="flex h-8 py-2 items-center"><img src="{{ \Illuminate\Support\Facades\Storage::url("assets/complete.png") }}" alt="" class="h-full object-contain mr-2">подтвержденная родословная</li>
                 <li class="flex h-10 py-2 items-center"><img src="{{ \Illuminate\Support\Facades\Storage::url("assets/prize.png") }}" alt="" class="h-full object-contain mr-2">победитель "Мейн-Куны г. Челябинска 2020"</li>
